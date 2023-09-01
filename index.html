@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trabalhando com Atributos</title>
+    <style>
+        #emoji {
+            width: 200px;
+            height: 200px;
+        }
+
+        .risos {
+            background-image: url('./e1.png');
+        }
+
+        .sorriso {
+            background-image: url('./e2.png');
+        }
+
+        .raiva {
+            background-image: url('./e3.png');
+        }
+    </style>
+    <script>
+        function trocaEmoji(e) {
+            var obj = document.getElementById('emoji');
+            if (e == 1) {
+                obj.setAttribute('class', 'risos');
+            } else if (e == 2) {
+                obj.setAttribute('class', 'sorriso');
+            } else if (e == 3) {
+                obj.setAttribute('class', 'raiva');
+            }
+        }
+
+        function removeEmoji() {
+            var obj = document.getElementById('emoji');
+            obj.removeAttribute('class');
+        }
+
+        function verifica() {
+            var obj = document.getElementById('emoji');
+            if (obj.hasAttribute('class')) {
+                alert('Atribute class está na tag');
+            } else {
+                alert('Sem atributo class');
+            }
+        }
+    </script>
+</head>
+
+<body>
+
+    <button onclick="trocaEmoji(1)">Emoji rindo</button>
+    <button onclick="trocaEmoji(2)">Emoji sorrindo</button>
+    <button onclick="trocaEmoji(3)">Emoji com raiva</button>
+    <button onclick="removeEmoji()">Remover emoji</button>
+    <button onclick="verifica()">Verificar</button>
+    <div id="emoji"></div>
+
+</body>
